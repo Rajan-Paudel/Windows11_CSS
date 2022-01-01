@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows 11</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="text.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
+</head>
+<body onload="startTime()">
+        <div class="container">
+            <p>Windows 11 |  <span class="typed-text"></span><span class="cursor">&nbsp;</span></p>
+        </div>
+          <script>
+              const typedTextSpan = document.querySelector(".typed-text");
+        const cursorSpan = document.querySelector(".cursor");
+        const textArray = ["Clean", "Simple", "Light", "Superfast"];
+        const typingDelay = 200;
+        const erasingDelay = 100;
+        const newTextDelay = 2000;
+        let textArrayIndex = 0;
+        let charIndex = 0;
+        function type() {
+          if (charIndex < textArray[textArrayIndex].length) {
+            if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+            typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+            charIndex++;
+            setTimeout(type, typingDelay);
+          } 
+          else {
+            cursorSpan.classList.remove("typing");
+              setTimeout(erase, newTextDelay);
+          }
+        }
+        function erase() {
+            if (charIndex > 0) {
+            if(!cursorSpan.classList.contains("typing")) cursorSpan.classList.add("typing");
+            typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+            charIndex--;
+            setTimeout(erase, erasingDelay);
+          } 
+          else {
+            cursorSpan.classList.remove("typing");
+            textArrayIndex++;
+            if(textArrayIndex>=textArray.length) textArrayIndex=0;
+            setTimeout(type, typingDelay + 1100);
+          }
+        }
+        document.addEventListener("DOMContentLoaded", function() { 
+          if(textArray.length) setTimeout(type, newTextDelay + 250);
+        });
+          </script>
+    <div class="navbar">
+        <button onclick="myFunction()" style="border: 0px; background-color: transparent; filter: invert();"><img src="win_icon.png"/></button> 
+        <button onclick="myFunction6()" style="border: 0px; background-color: transparent;"><img src="search.png"></button> 
+        <button onclick="myFunction4()" style="border: 0px; background-color: transparent;"><img src="Task_icon.png"></button><img src="store_icon.png"><img src="Chrome_icon.png"><img src="outlook_icon.png">
+       <img src="ai_icon.png"><button onclick="myFunction5()" style="border: 0px; background-color: transparent;"><img src="ps_icon.png"> </button>
+       <button onclick="myFunction2()" style="border: 0px; background-color: transparent;"><img src="folder_icon.png"></button>
+       <button onclick="myFunction3()" style="float: right; border: 0px; background-color: transparent; filter: invert();" > <img src="notification.png" style=" width: 20px; margin-top: 5px;" ></button>
+       <div id="txt"></div>
+      </div>
+      <div id="myDIV">
+          <img src="Menu_image.png">
+     </div>
+     <div id="myDIV2">
+        <img src="folder.png">
+   </div>
+   <div id="myDIV3">
+    <img src="action.png">
+  </div>
+  <div id="myDIV4">
+    <img src="task.png">
+  </div>  
+   <script>
+        function startTime() {
+  var today = new Date();
+  var h = today.getHours();
+  var m = today.getMinutes();
+  var s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =
+  h + ":" + m + ":" + s;
+  var t = setTimeout(startTime, 1000);
+}
+function checkTime(i) {
+  if (i < 10) {i = "0" + i}; 
+  return i;
+}
+    </script>
+
+
+<div id="myDIV5">
+    <img src="ps.png">
+</div>
+<div id="myDIV6">
+    <div class="task">
+        <div class="form"><form>
+        <input type="text" placeholder=" Search Here">
+    </form>
+    </div>
+    <div class="recents">
+        <img src="Chrome_icon.png"><img src="ai_icon.png"><img src="outlook_icon.png"><img src="store_icon.png">
+        <p>Recently Used</p>
+     </div>
+</div>
+    
+    
+</div>
+
+</body>
+</html>
